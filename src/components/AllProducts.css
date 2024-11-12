@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-right: 1px solid #ddd;
+    /* font-size: 16px; */
+}
+
+.product-grid {
+    flex: 1;
+    padding: 20px;
+    color: white;
+}
+
+.heading {
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.divider {
+    margin: 15px 0;
+    border: 1px solid #555;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.checkbox-label {
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.sort-button {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+}
+
+.sort-button:hover {
+    background-color: #0056b3;
+}
+
+.price-range {
+    margin-bottom: 20px;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+/* Custom invisible scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.sidebar-scrollable::-webkit-scrollbar {
+    width: 8px; /* Set width to something reasonable, even if it's invisible */
+    height: 8px; /* For horizontal scrollbar, if you need it */
+}
+
+.sidebar-scrollable::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+.sidebar-scrollable::-webkit-scrollbar-thumb {
+    background: transparent; /* Transparent thumb */
+    border-radius: 10px; /* Optional, to keep the thumb rounded */
+}
+
+/* Make scrollbar invisible but still functional in Firefox */
+.sidebar-scrollable {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: transparent transparent; /* Invisible thumb and track */
+}
+
+/* Optionally hide the scrollbar completely (this will hide the entire scrollbar) */
+.sidebar-scrollable::-webkit-scrollbar {
+    display: none;
+}
