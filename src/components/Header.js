@@ -3,6 +3,7 @@ import { FaSearch, FaShoppingCart, FaUser, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
 import productsData from '../data/ProductsData'; // Ensure this path is correct
+import '../styles/Header.css'
 
 const Header = () => {
     const [showSearch, setShowSearch] = useState(false);

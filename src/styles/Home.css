@@ -1,10 +1,8 @@
-/* General body styles to set a black background for the entire application */
 body {
-    background-color: black; /* Black background for the entire body */
-    color: #E6E1DF; /* Default text color set to #E6E1DF for contrast */
+    background-color: black;
+    color: #E6E1DF;
 }
 
-/* Banner Slider Styles */
 .banner-slider {
     position: relative;
     display: flex;
@@ -20,8 +18,8 @@ body {
     width: 100%;
     height: 500px;
     padding: 20px;
-    background-color: #000; /* Dark background for all slides */
-    color: #E6E1DF; /* Use the new text color for slide content */
+    background-color: #000;
+    color: #E6E1DF;
 }
 
 .banner-content {
@@ -33,14 +31,14 @@ body {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    color:#E6E1DF; /* Keep the caption red */
+    color: #E6E1DF;
 }
 
 .banner-description {
     font-size: 50px;
     line-height: 1.5;
     margin-bottom: 10px;
-    color: #E6E1DF; /* Set description color */
+    color: #E6E1DF;
     width: 80%;
 }
 
@@ -48,32 +46,32 @@ body {
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 15px;
-    color: #E6E1DF; /* Set price text color */
+    color: #E6E1DF;
 }
 
 .discounted-price {
-    color: #e63946; /* Bright red for discounted price */
+    color: #e63946;
     font-weight: bold;
     margin-right: 10px;
 }
 
 .original-price {
     text-decoration: line-through;
-    color: gray; /* Gray for original price */
+    color: gray;
 }
 
 .shop-now-btn {
-    background-color: red; /* Red button for shop now */
-    color: #fff; /* White text on buttons */
+    background-color: red;
+    color: #fff;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s; /* Transition for hover effect */
+    transition: background-color 0.3s;
 }
 
 .shop-now-btn:hover {
-    background-color: darkred; /* Darker shade on hover */
+    background-color: darkred;
 }
 
 .banner-image {
@@ -82,28 +80,26 @@ body {
     height: 100%;
 }
 
-/* Navigation Buttons */
 .prev-btn, .next-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+    background: rgba(255, 0, 0, 0.5);
     color: #fff;
     border: none;
     padding: 10px;
     cursor: pointer;
     font-size: 24px;
-    transition: background 0.3s; /* Transition for hover effect */
+    transition: background 0.3s;
 }
 
 .prev-btn:hover, .next-btn:hover {
-    background: rgba(255, 0, 0, 0.7); /* Darker red on hover */
+    background: rgba(255, 0, 0, 0.7);
 }
 
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
 
-/* Triangle Slider Styles */
 .triangle-slider {
     position: relative;
     width: 100%;
@@ -135,83 +131,80 @@ body {
     object-fit: cover;
 }
 
-/* Image Row Styles */
 .image-row {
-    display: flex; /* Use flexbox to arrange items in a row */
-    justify-content: space-around; /* Space between images */
-    margin: 20px 0; /* Space above and below the row */
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
     transition: transform 0.5s ease; 
 }
 
 .image-item {
-    width: 20%; /* Each image takes up 20% of the total width */
-    padding: 10px; /* Optional padding around images */
+    width: 20%;
+    padding: 10px;
 }
 
 .image {
-    width: 100%; /* Make the image fill its container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: rounded corners */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .size-60 {
-    width: 60%; /* 60% width for first and last images */
+    width: 60%;
     margin-top: 100px;
 }
 
 .size-80 {
-    width: 70%; /* 80% width for second and fourth images */
+    width: 70%;
     margin-top: 50px;
 }
 
 .size-100 {
-    width: 100%; /* 100% width for the middle image */
+    width: 100%;
 }
 
-/* Product Name Styles */
 .product-name {
-    position: relative; /* Position name over image */
-    top: -10px; /* Distance from the top */
-    left: 0; /* Align to left */
-    right: 0; /* Align to right */
-    text-align: center; /* Center text */
-    font-weight: bold; /* Bold font for product name */
-    color: #E6E1DF; /* Use the new text color for product names */
-    padding: 5px 0; /* Padding around the text */
+    position: relative;
+    top: -10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #E6E1DF;
+    padding: 5px 0;
 }
 
-/* Product Price Styles */
 .product-price {
-    display: flex; /* Flexbox for inline layout of prices */
-    align-items: center; /* Center prices vertically */
-    margin-top: 10px; /* Space above prices */
-    color: #E6E1DF; /* Set product price color */
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #E6E1DF;
 }
 
 .discounted-price {
-    font-size: 20px; /* Font size for discounted price */
-    color: #e63946; /* Red color for discounted price */
+    font-size: 20px;
+    color: #e63946;
 }
 
 .original-price {
-    text-decoration: line-through; /* Strike through original price */
-    color: gray; /* Gray color for original price */
+    text-decoration: line-through;
+    color: gray;
 }
 
-/* Top Products Section Styles */
 .top-products-section {
-    text-align: center; /* Center the title */
-    margin: 40px 0; /* Margin above and below the section */
+    text-align: center;
+    margin: 40px 0;
 }
 
 .top-products-title {
-    font-size: 36px; /* Size of the section title */
-    margin-bottom: 20px; /* Space below the title */
-    color:#E6E1DF; /* Keep the section title red */
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #E6E1DF;
 }
-.featured{
+
+.featured {
     text-align: center;
     font-size: 37px;
     margin-top: 100px;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }

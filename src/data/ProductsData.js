@@ -44,11 +44,6 @@ import boat255r2 from '../Assets/boat255r-2.png';
 import boat255r3 from '../Assets/boat255r-3.png';
 import boat255r4 from '../Assets/boat255r-4.png';
 
-import jbl1001 from '../Assets/jbl100-1.png';
-import jbl1002 from '../Assets/jbl100-2.png';
-import jbl1003 from '../Assets/jbl100-3.png';
-import jbl1004 from '../Assets/jbl100-4.png';
-
 import sony1000xm41 from '../Assets/sony1000xm4-1.png';
 import sony1000xm42 from '../Assets/sony1000xm4-2.png';
 import sony1000xm43 from '../Assets/sony1000xm4-3.png';

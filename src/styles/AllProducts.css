@@ -8,7 +8,6 @@
     background-color: black;
     color: white;
     border-right: 1px solid #ddd;
-    /* font-size: 16px; */
 }
 
 .product-grid {
@@ -62,28 +61,26 @@
 input[type="range"] {
     width: 100%;
 }
-/* Custom invisible scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+
 .sidebar-scrollable::-webkit-scrollbar {
-    width: 8px; /* Set width to something reasonable, even if it's invisible */
-    height: 8px; /* For horizontal scrollbar, if you need it */
+    width: 8px;
+    height: 8px;
 }
 
 .sidebar-scrollable::-webkit-scrollbar-track {
-    background: transparent; /* Transparent track */
+    background: transparent;
 }
 
 .sidebar-scrollable::-webkit-scrollbar-thumb {
-    background: transparent; /* Transparent thumb */
-    border-radius: 10px; /* Optional, to keep the thumb rounded */
+    background: transparent;
+    border-radius: 10px;
 }
 
-/* Make scrollbar invisible but still functional in Firefox */
 .sidebar-scrollable {
-    scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: transparent transparent; /* Invisible thumb and track */
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
 }
 
-/* Optionally hide the scrollbar completely (this will hide the entire scrollbar) */
 .sidebar-scrollable::-webkit-scrollbar {
     display: none;
 }
