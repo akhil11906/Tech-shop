@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'; // Import star icons
+import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product, addToCart }) => {
-    // Function to render stars based on the rating
     const renderStars = (rating) => {
         const fullStars = Math.floor(rating);
         const hasHalfStar = rating % 1 !== 0;
@@ -35,12 +34,11 @@ const ProductCard = ({ product, addToCart }) => {
                         <span className="original-price">₹{product.originalPrice}</span>
                     )}
                 </div>
-                <div className="ratings">
-                    {renderStars(product.rateCount)} {/* Render stars based on rating */}
+                <div className="ratings text-danger">
+                    {renderStars(product.rateCount)}
                 </div>
             </Link>
 
-            {/* "Add to Cart" Button */}
             <button className="view-details-button" onClick={() => addToCart(product)}>
                 Add to Cart
             </button>

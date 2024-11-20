@@ -1,3 +1,11 @@
-*{
+/* App.css */
+
+/* Apply black background color globally */
+* {
   margin: 0;
+}
+
+.App {
+  background-color: black;
+  color: white;
 }

@@ -14,6 +14,7 @@ body {
     background-color: #1A1A1A;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* background-color: transparent; */
 }
 
 .cart-items-container {
@@ -29,6 +30,7 @@ body {
     font-size: 1.8rem;
     margin-bottom: 20px;
     text-transform: uppercase;
+    background-color: transparent;
 }
 
 .empty-cart-message {
@@ -40,6 +42,8 @@ body {
 .cart-items {
     display: flex;
     flex-direction: column;
+    background-color: transparent;
+
 }
 
 .cart-item {
@@ -51,6 +55,7 @@ body {
     border-radius: 5px;
     background-color: #2A2A2A;
     transition: background-color 0.3s;
+    /* background-color: transparent; */
 }
 
 .cart-item:hover {
@@ -62,15 +67,20 @@ body {
     height: auto;
     margin-right: 15px;
     border-radius: 4px;
+    background-color: transparent;
+
 }
 
 .item-details {
     flex-grow: 1;
+    background-color: transparent;
+
 }
 
 .item-title {
     font-size: 1.4rem;
     margin: 0;
+    background-color: transparent;
     font-weight: 600;
 }
 
@@ -78,6 +88,8 @@ body {
 .item-quantity {
     margin: 5px 0;
     font-size: 1rem;
+    background-color: transparent;
+
 }
 
 .remove-button {
@@ -88,6 +100,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    
 }
 
 .remove-button:hover {
@@ -98,8 +111,13 @@ body {
     display: flex;
     align-items: center;
     margin: 10px 0;
-}
+    background-color: transparent;
 
+}
+.cart-items-container{
+    background-color: transparent;
+
+}
 .quantity-button {
     padding: 5px 10px;
     background-color: #D32F2F;
@@ -108,6 +126,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    
 }
 
 .quantity-button:hover {
@@ -118,6 +137,10 @@ body {
     margin: 0 10px;
     font-size: 1.2rem;
     color: #E0E0E0;
+}
+.order-summary-container{
+    background-color: transparent;
+
 }
 
 .order-summary {
@@ -130,33 +153,43 @@ body {
 .order-summary h2 {
     font-size: 1.5rem;
     margin-bottom: 15px;
+    background-color: transparent;
 }
 
 .order-summary p {
     margin: 10px 0;
     font-size: 1.1rem;
+    background-color: transparent;
+
 }
 
 .order-summary hr {
     margin: 15px 0;
     border: 0;
     height: 1px;
-    background-color: #444;
+    /* background-color: #444; */
+    background-color: transparent;
+
 }
 
 .total-price {
     font-weight: bold;
     font-size: 1.3rem;
+    background-color: transparent;
+
 }
 
 .continue-button {
-    background-color: #D32F2F;
+    background-color: red;
     width: 100%;
     padding: 10px;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    /* background-color: transparent; */
+    border: none;
+
 }
 
 .continue-button:hover {
@@ -168,6 +201,8 @@ body {
     color: #888;
     margin-left: 10px;
     font-size: 0.9rem;
+    background-color: transparent;
+
 }
 
 .empty-cart-message-container {

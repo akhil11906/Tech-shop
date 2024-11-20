@@ -6,7 +6,8 @@ import Home from './components/Home';
 import Cart from './components/CartPage';
 import './App.css';
 import AllProducts from './components/AllProducts';
-import ProductDetail from './components/ProductDetail';  // Import the ProductDetail component
+import ProductDetail from './components/ProductDetail'; 
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
     return (
@@ -17,7 +18,7 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/all-products" element={<AllProducts />} />
                     <Route path="/cart" element={<Cart />} />
-                    <Route path="/product/:id" element={<ProductDetail />} /> {/* Route for individual product */}
+                    <Route path="/product/:id" element={<ProductDetail />} /> 
                 </Routes>
             </div>
             <Footer />

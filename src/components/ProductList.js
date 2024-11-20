@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import productsData from '../data/ProductsData';
 import ProductCard from './ProductCard';
 import '../styles/ProductList.css';
-import { useCart } from '../components/CartContext'; // Import useCart
+import { useCart } from '../components/CartContext';
 
 const ProductList = ({ selectedCategory }) => {
-    const { addToCart } = useCart(); // Get addToCart from context
-    const [category, setSelectedCategory] = useState(selectedCategory || 'All'); // Initialize selected category, default to 'All'
+    const { addToCart } = useCart();
+    const [category, setSelectedCategory] = useState(selectedCategory || 'All');
 
-    // Filter products based on selected category
     const filteredProducts = category === 'All'
         ? productsData
         : productsData.filter(product => product.category === category);
 
-    // Only display the first 11 products
     const productsToDisplay = filteredProducts.slice(0, 11);
 
     return (
@@ -32,7 +30,6 @@ const ProductList = ({ selectedCategory }) => {
                     <ProductCard key={product.id} product={product} addToCart={addToCart} />
                 ))}
 
-                {/* Link to the All Products page */}
                 <Link to="/all-products" className="product-card browse-all-card">
                     <h4 className='browse'>Browse all products</h4>
                     <button className="view-details-button">View Products</button>

@@ -96,6 +96,7 @@ body {
     margin: 10px;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
+    text-decoration: none;
 }
 
 .browse-all-card:hover {

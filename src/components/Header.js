@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaSearch, FaShoppingCart, FaUser, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
-import productsData from '../data/ProductsData'; // Ensure this path is correct
+import productsData from '../data/ProductsData';
 import '../styles/Header.css'
 
 const Header = () => {
@@ -17,7 +17,6 @@ const Header = () => {
     const searchRef = useRef();
     const searchInputRef = useRef();
 
-    // Toggle search overlay visibility
     const toggleSearch = () => {
         setShowSearch(prev => !prev);
         setShowUserOptions(false);
@@ -64,7 +63,7 @@ const Header = () => {
             const filteredResults = productsData.filter(product =>
                 product.title.toLowerCase().includes(query.toLowerCase())
             );
-            setSearchResults(filteredResults.slice(0, 5)); // Limit to top 5 suggestions
+            setSearchResults(filteredResults.slice(0, 5)); 
         } else {
             setSearchResults([]);
         }
@@ -93,7 +92,6 @@ const Header = () => {
 
     return (
         <>
-            {/* Search Overlay */}
             {showSearch && (
                 <div style={overlayStyle} onClick={handleOverlayClick}>
                     <div ref={searchRef} style={searchOverlayContentStyle}>
@@ -112,7 +110,6 @@ const Header = () => {
                             />
                         </form>
 
-                        {/* Search Suggestions */}
                         {searchResults.length > 0 && (
                             <div style={suggestionsDropdownStyle}>
                                 {searchResults.map((product) => (
@@ -130,7 +127,6 @@ const Header = () => {
                 </div>
             )}
 
-            {/* Login or Register Overlay */}
             {(showLogin || showRegister) && (
                 <div style={loginoverlayStyle} onClick={handleOverlayClick}>
                     <div
@@ -160,7 +156,6 @@ const Header = () => {
                 </div>
             )}
 
-            {/* Header */}
             <header style={headerStyle}>
                 <div style={logoStyle}>
                     <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
@@ -182,19 +177,16 @@ const Header = () => {
                             </Link>
                         </li>
 
-                        {/* User Icon for Login/Signup */}
                         <li style={navItemStyle} title="Login / Signup">
                             <div style={userIconContainerStyle}>
                                 <FaUser style={iconStyle} onClick={toggleUserOptions} />
                                 {showUserOptions && (
                                     <div style={userOptionsContainerStyle}>
-                                        {/* Greeting Section */}
                                         <div style={userGreetingStyle}>
                                             <h3 className='hello'>Hello!</h3>
                                             <p>Access account manage orders</p>
                                         </div>
 
-                                        {/* Access Account Section with Buttons Side by Side */}
                                         <div style={accountSectionStyle}>
                                             <div style={buttonContainerStyle}>
                                                 <button onClick={toggleLogin} style={buttonStyle}>Login</button><span>/</span>
@@ -202,10 +194,8 @@ const Header = () => {
                                             </div>
                                         </div>
 
-                                        {/* Horizontal Line Separator */}
                                         <hr style={hrStyle} />
 
-                                        {/* Please Login Section */}
                                         <div style={loginPromptStyle}>
                                             <p>Please login</p>
                                         </div>
@@ -220,7 +210,6 @@ const Header = () => {
     );
 };
 
-// Centering Overlay Style
 const loginoverlayStyle = {
     position: 'fixed',
     top: 0,
@@ -243,7 +232,6 @@ const overlayStyle = {
     zIndex: 1000,
 };
 
-// Search-specific styles
 const searchOverlayContentStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -281,7 +269,6 @@ const searchInputStyle = {
     color: 'white',
 };
 
-// Login/Register-specific styles
 const loginRegisterFormStyle = {
     ...searchOverlayFormStyle,
     width: '25%',
@@ -312,10 +299,8 @@ const closeIconStyle = {
     cursor: 'pointer',
 };
 
-// Additional styles (icons, header, etc.)
 const headerStyle = {
     padding: '10px',
-    // backgroundColor: '#333',
     color: '#E1DDD',
     display: 'flex',
     justifyContent: 'space-between',
@@ -368,7 +353,6 @@ const userOptionsContainerStyle = {
     position: 'absolute',
     top: '30px',
     right: '0',
-    // backgroundColor: '#333',
     border:'1px solid white',
     color: '#E1DDD',
     padding: '10px',
@@ -379,7 +363,6 @@ const userOptionsContainerStyle = {
 
 const userGreetingStyle = {
     paddingBottom: '10px',
-    // textAlign: 'center',
     fontSize:'14px'
 };
 

@@ -92,10 +92,9 @@ const Feature = ({ icon, title, description }) => (
     </div>
 );
 
-// Styles for the components
 const footerStyle = {
     padding: '20px',
-    backgroundColor: 'black', // Footer background color
+    backgroundColor: 'black',
     textAlign: 'center',
 };
 
@@ -120,23 +119,22 @@ const featureStyle = {
 const iconStyle = {
     fontSize: '24px',
     marginRight: '10px',
-    color: 'red', // Icon color
+    color: 'red',
 };
 
 const titleStyle = {
     fontSize: '16px',
     margin: '0',
     fontWeight: 'bold',
-    color: '#E6E1DF', // Set title color to #E6E1DF
+    color: '#E6E1DF',
 };
 
 const descriptionStyle = {
     margin: '0',
     fontSize: '14px',
-    color: '#E6E1DF', // Set description color to #E6E1DF
+    color: '#E6E1DF',
 };
 
-// Styles for the columns below the features section
 const columnsContainerStyle = {
     display: 'flex',
     justifyContent: 'space-around',
@@ -161,23 +159,23 @@ const subscribeButtonStyle = {
     width: '100%',
     padding: '10px',
     marginTop: '10px',
-    backgroundColor: 'red', // Button background color
-    color: '#fff', // Text color for button
+    backgroundColor: 'red',
+    color: '#fff',
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
-    transition: 'background-color 0.3s', // Transition effect
+    transition: 'background-color 0.3s',
 };
 
 const subscribeButtonHoverStyle = {
-    backgroundColor: '#E63946', // Darker red on hover
+    backgroundColor: '#E63946',
 };
 
 const linkListStyle = {
     listStyleType: 'none',
     padding: 0,
     lineHeight: '1.8',
-    color: '#E6E1DF', // Set link color to #E6E1DF
+    color: '#E6E1DF',
     cursor: 'pointer',
 };
 
@@ -187,12 +185,12 @@ const bottomContainerStyle = {
     alignItems: 'center',
     marginTop: '20px',
     paddingTop: '15px',
-    borderTop: '1px solid #444', // Border color
+    borderTop: '1px solid #444',
 };
 
 const leftTextStyle = {
     fontSize: '14px',
-    color: '#E6E1DF', // Set left text color to #E6E1DF
+    color: '#E6E1DF',
 };
 
 const socialIconsStyle = {
@@ -201,10 +199,9 @@ const socialIconsStyle = {
 
 const iconSpacingStyle = {
     fontSize: '20px',
-    color: 'red', // Change social icon color to red
+    color: 'red',
     marginLeft: '15px',
     cursor: 'pointer',
 };
-
 
 export default Footer;
