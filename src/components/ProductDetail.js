@@ -13,12 +13,30 @@ const ProductDetail = () => {
     const product = productsData.find((product) => product.id === parseInt(id));
     const [mainImage, setMainImage] = useState(product ? product.images[0] : null);
     const [activeTab, setActiveTab] = useState('Specifications');
+    
+    const [addedProducts, setAddedProducts] = useState({});
 
     if (!product) {
         return <div>Product not found!</div>;
     }
 
     const discountPercentage = Math.round(((product.originalPrice - product.finalPrice) / product.originalPrice) * 100);
+
+    const handleAddToCart = (product) => {
+        addToCart(product);
+        
+        setAddedProducts((prevState) => ({
+            ...prevState,
+            [product.id]: true,
+        }));
+        
+        setTimeout(() => {
+            setAddedProducts((prevState) => ({
+                ...prevState,
+                [product.id]: false,
+            }));
+        }, 950);
+    };
 
     const renderStars = (rating) => {
         const maxStars = 5;
@@ -114,7 +132,12 @@ const ProductDetail = () => {
                             <p className="related-product-price">
                                 ₹{relatedProduct.finalPrice} <span className="original-price">₹{relatedProduct.originalPrice}</span>
                             </p>
-                            <button className="add-to-cart-btn" onClick={() => addToCart(relatedProduct)}>Add to Cart</button>
+                            <button
+                                className={`view-details-button ${addedProducts[relatedProduct.id] ? 'added-to-cart-button' : ''}`}
+                                onClick={() => handleAddToCart(relatedProduct)}
+                            >
+                                {addedProducts[relatedProduct.id] ? 'Added to Cart' : 'Add to Cart'}
+                            </button>
                         </div>
                     ))
                 ) : (
@@ -164,7 +187,7 @@ const ProductDetail = () => {
                         {renderStars(product.rateCount)}
                         <span className="reviews-count"> | {product.ratings} Reviews</span>
                     </div>
-                    <hr/>
+                    <hr />
                     <div className="akhil-price-section">
                         <p className="akhil-price">
                             ₹{product.finalPrice} <span className="akhil-original-price">₹{product.originalPrice}</span>
@@ -172,15 +195,20 @@ const ProductDetail = () => {
                         <p className="akhil-discount">You save: ₹{product.originalPrice - product.finalPrice} ({discountPercentage}%)</p>
                         <p className="akhil-tax-info">(Inclusive of all taxes)</p>
                     </div>
-                    <hr/>
+                    <hr />
                     <h4>Offers and Discounts</h4>
 
                     <div className="akhil-offers">
                         <p>No Cost EMI on Credit Card</p>
                         <p>Pay Later & Avail Cashback</p>
                     </div>
-                    <hr/>
-                    <button className="akhil-add-to-cart" onClick={() => addToCart(product)}>Add to cart</button>
+                    <hr />
+                    <button
+                        className={`akhil-add-to-cart ${addedProducts[product.id] ? 'added-to-cart-button' : ''}`}
+                        onClick={() => handleAddToCart(product)}
+                    >
+                        {addedProducts[product.id] ? 'Added to Cart' : 'Add to Cart'}
+                    </button>
                 </div>
             </div>
 

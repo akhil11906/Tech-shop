@@ -16,13 +16,17 @@ const Cart = () => {
     const handleStartShopping = () => {
         navigate('/all-products');
     };
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`);
+    };
+    
 
     return (
         <div className="cart-container">
             <div className="cart-items-container">
                 {cart.length > 0 ? (
                     cart.map(item => (
-                        <div key={item.id} className="cart-item">
+                        <div onClick={() => handleProductClick(item.id)} className="cart-item">
                             <img src={item.images[0]} alt={item.title} className="item-image" />
                             <div className="item-details">
                                 <p className="item-title">{item.title}</p>

@@ -4,7 +4,14 @@
     background-color: black;
     color: white;
 }
-
+.akhil-detail .added-to-cart-button {
+    background-color: #28a745;
+    color: white;
+    cursor: not-allowed;
+}
+.akhil-detail .added-to-cart-button:hover {
+    background-color: #218838;
+}
 .akhil-detail-content {
     display: flex;
     max-width: 1400px;

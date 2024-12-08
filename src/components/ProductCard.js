@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product, addToCart }) => {
+    const [added, setAdded] = useState(false);  
+
     const renderStars = (rating) => {
         const fullStars = Math.floor(rating);
         const hasHalfStar = rating % 1 !== 0;
@@ -20,6 +22,14 @@ const ProductCard = ({ product, addToCart }) => {
         }
 
         return stars;
+    };
+
+    const handleAddToCart = (product) => {
+        addToCart(product);  
+        setAdded(true);  
+        setTimeout(() => {
+            setAdded(false); 
+        }, 950);
     };
 
     return (
@@ -39,8 +49,11 @@ const ProductCard = ({ product, addToCart }) => {
                 </div>
             </Link>
 
-            <button className="view-details-button" onClick={() => addToCart(product)}>
-                Add to Cart
+            <button 
+                className={`view-details-button ${added ? 'added-to-cart-button' : ''}`} 
+                onClick={() => handleAddToCart(product)}
+            >
+                {added ? 'Added to Cart' : 'Add to Cart'}
             </button>
         </div>
     );

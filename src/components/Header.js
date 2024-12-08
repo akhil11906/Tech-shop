@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaSearch, FaShoppingCart, FaUser, FaTimes } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; 
 import { useCart } from '../components/CartContext';
 import productsData from '../data/ProductsData';
-import '../styles/Header.css'; // Import your CSS file here
+import '../styles/Header.css';
 
 const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
@@ -17,10 +17,14 @@ const Header = () => {
     const searchRef = useRef();
     const searchInputRef = useRef();
 
+    const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+
+    const navigate = useNavigate();  
+
     const toggleSearch = () => {
         setShowSearch(prev => !prev);
         setShowUserOptions(false);
-    }
+    };
 
     const toggleUserOptions = () => {
         setShowUserOptions(prev => !prev);
@@ -78,17 +82,41 @@ const Header = () => {
         setSearchResults([]);
     };
 
+    const handleSelectSuggestion = (productId) => {
+        setShowSearch(false);  
+        setSearchResults([]);   
+        navigate(`/product/${productId}`);  
+    };
+
     useEffect(() => {
+        const handleResize = () => {
+            if (window.innerHeight < 500) {
+                setIsKeyboardOpen(true);
+            } else {
+                setIsKeyboardOpen(false);
+            }
+        };
+
         const handleClickOutside = (event) => {
             if (searchRef.current && !searchRef.current.contains(event.target)) {
                 setSearchResults([]);
             }
         };
+
+        window.addEventListener('resize', handleResize);
         document.addEventListener('mousedown', handleClickOutside);
+
         return () => {
+            window.removeEventListener('resize', handleResize);
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    useEffect(() => {
+        if (isKeyboardOpen && searchInputRef.current) {
+            searchInputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, [isKeyboardOpen]);
 
     return (
         <>
@@ -113,13 +141,13 @@ const Header = () => {
                         {searchResults.length > 0 && (
                             <div className="suggestions-dropdown">
                                 {searchResults.map((product) => (
-                                    <Link
-                                        to={`/product/${product.id}`}
+                                    <div
                                         key={product.id}
                                         className="suggestion-item"
+                                        onClick={() => handleSelectSuggestion(product.id)}
                                     >
                                         {product.title}
-                                    </Link>
+                                    </div>
                                 ))}
                             </div>
                         )}
@@ -137,18 +165,18 @@ const Header = () => {
                         <h2 className="form-title">{showLogin ? 'Login' : 'Signup'}</h2>
                         {showLogin ? (
                             <>
-                                <p>New to Tech-shop? <button  className="login-register-btn" onClick={toggleRegister}>Create an account</button></p>
+                                <p>New to Tech-shop? <button className="login-register-btn" onClick={toggleRegister}>Create an account</button></p>
                                 <input type="text" placeholder="Username" className="login-register-input" autoComplete="off" />
                                 <input type="password" placeholder="Password" className="login-register-input" autoComplete="new-password" />
                                 <button className="login-register-button">Login</button>
                             </>
                         ) : (
                             <>
-                                <p>Already have an account? <button  className="login-register-btn" onClick={toggleLogin}>Login</button></p>
+                                <p>Already have an account? <button className="login-register-btn" onClick={toggleLogin}>Login</button></p>
                                 <input type="text" placeholder="Username" className="login-register-input" autoComplete="off" />
                                 <input type="email" placeholder="Email" className="login-register-input" autoComplete="off" />
                                 <input type="password" placeholder="Password" className="login-register-input" autoComplete="new-password" />
-                                <input type='password' placeholder='Confirm Password' className="login-register-input" autoComplete='Confirm-password'/>
+                                <input type="password" placeholder="Confirm Password" className="login-register-input" autoComplete="Confirm-password" />
                                 <button className="login-register-button">Signup</button>
                             </>
                         )}
@@ -180,32 +208,32 @@ const Header = () => {
                         <li className="nav-item" title="Login / Signup">
                             <div className="user-icon-container">
                                 <FaUser className="icon" onClick={toggleUserOptions} />
-                                {showUserOptions && (
-                                    <div className="user-options-container">
-                                        <div className="user-greeting">
-                                            <h3 className="hello">Hello!</h3>
-                                            <p>Access account manage orders</p>
-                                        </div>
-
-                                        <div className="account-section">
-                                            <div className="button-container">
-                                                <button onClick={toggleLogin} className="button">Login</button><span>/</span>
-                                                <button onClick={toggleRegister} className="button">Register</button>
-                                            </div>
-                                        </div>
-
-                                        <hr className="divider" />
-
-                                        <div className="login-prompt">
-                                            <p>Please login</p>
-                                        </div>
-                                    </div>
-                                )}
                             </div>
                         </li>
                     </ul>
                 </nav>
             </header>
+            {showUserOptions && (
+                <div className="user-options-container">
+                    <div className="user-greeting">
+                        <h3 className="hello">Hello!</h3>
+                        <p>Access account manage orders</p>
+                    </div>
+
+                    <div className="account-section">
+                        <div className="button-container">
+                            <button onClick={toggleLogin} className="button">Login</button><span>/</span>
+                            <button onClick={toggleRegister} className="button">Register</button>
+                        </div>
+                    </div>
+
+                    <hr className="divider" />
+
+                    <div className="login-prompt">
+                        <p>Please login</p>
+                    </div>
+                </div>
+            )}
         </>
     );
 };

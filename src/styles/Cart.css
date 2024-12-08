@@ -14,6 +14,8 @@ body {
     background-color: #1A1A1A;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 70px;
+
 }
 
 .cart-items-container {
@@ -221,7 +223,8 @@ body {
 /* Mobile: Small screens */
 @media (max-width: 768px) {
     .cart-container {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         padding: 10px;
         max-width: 100%;
     }
