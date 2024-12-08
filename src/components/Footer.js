@@ -75,7 +75,9 @@ const Footer = () => {
                     <FaFacebook style={iconSpacingStyle} />
                     <FaTwitter style={iconSpacingStyle} />
                     <FaInstagram style={iconSpacingStyle} />
-                    <FaLinkedin style={iconSpacingStyle} />
+                    <a href="https://www.linkedin.com/in/venkata-naga-akhil-anantha-768bb5275/" target="_blank" rel="noopener noreferrer">
+                        <FaLinkedin style={iconSpacingStyle} />
+                    </a>
                 </div>
             </div>
         </footer>

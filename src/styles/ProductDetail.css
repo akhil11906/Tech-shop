@@ -11,10 +11,16 @@
     background-color: black;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
     padding: 30px;
+    margin: 0 auto;
+}
+
+.akhil-left-side, .akhil-center-side, .akhil-right-side {
+    flex: 1;
+    min-width: 250px;
+    padding: 15px;
 }
 
 .akhil-left-side {
-    width: 25%;
     padding-right: 30px;
 }
 
@@ -38,7 +44,6 @@
 }
 
 .akhil-center-side {
-    width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,7 +55,6 @@
 }
 
 .akhil-right-side {
-    width: 30%;
     padding-left: 30px;
 }
 
@@ -321,4 +325,101 @@ hr {
     padding: 20px;
     border-radius: 50%;
     background-color: grey;
+}
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 1200px) {
+    .akhil-detail-content {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .akhil-left-side, .akhil-center-side, .akhil-right-side {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .akhil-center-side {
+        order: -1; 
+    }
+
+    .akhil-main-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .akhil-thumbnail-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .akhil-price {
+        font-size: 24px;
+    }
+
+    .akhil-add-to-cart {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .akhil-tabs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .akhil-tab-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .akhil-right-side {
+        padding-left: 15px;
+    }
+
+    .related-product {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .akhil-left-side, .akhil-center-side, .akhil-right-side {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .akhil-thumbnail-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .akhil-main-image {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .akhil-price {
+        font-size: 22px;
+    }
+
+    .akhil-add-to-cart {
+        font-size: 16px;
+    }
+
+    .related-product {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .review-user-icon {
+        font-size: 24px;
+    }
 }
