@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList'; 
 import '../styles/Home.css';
-import { useCart } from '../components/CartContext';
+// import { useCart } from '../components/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const { addToCart } = useCart();
+    // const { addToCart } = useCart();
     const [currentIndex, setCurrentIndex] = useState(0);
     const navigate = useNavigate(); 
 
@@ -54,12 +54,17 @@ const Home = () => {
         { id: 17, src: require('../Assets/boat381-2.png'), name: "boAt Rockerz 381", price: "₹2999", originalPrice: "₹4990" }
     ];
 
-    const handleNext = () => setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
+    // const handleNext = () => setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
 
     useEffect(() => {
+        const handleNext = () => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
+        };
+    
         const interval = setInterval(handleNext, 5000);
+    
         return () => clearInterval(interval);
-    }, []);
+    }, [banners.length]);  
 
     const displayedProducts = [
         products[(currentIndex + 0) % products.length],

@@ -261,7 +261,7 @@ const searchInputStyle = {
     fontSize: '16px',
     border: '1px solid #555',
     borderRadius: '5px',
-    color: '#E1DDD',
+    // color: '#E1DDD',
     backgroundColor: '#222',
     outline: 'none',
     marginBottom: '10px',
