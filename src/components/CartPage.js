@@ -26,8 +26,8 @@ const Cart = () => {
             <div className="cart-items-container">
                 {cart.length > 0 ? (
                     cart.map(item => (
-                        <div onClick={() => handleProductClick(item.id)} className="cart-item">
-                            <img src={item.images[0]} alt={item.title} className="item-image" />
+                        <div key={item.id} className="cart-item">
+                            <img onClick={() => handleProductClick(item.id)} src={item.images[0]} alt={item.title} className="item-image" />
                             <div className="item-details">
                                 <p className="item-title">{item.title}</p>
                                 <div className="item-price">

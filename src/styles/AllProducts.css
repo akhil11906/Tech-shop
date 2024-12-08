@@ -2,6 +2,7 @@
 .container {
     display: flex;
     flex-wrap: wrap; /* Ensures content will wrap on smaller screens */
+    position: relative; /* For positioning the scrollbar */
 }
 
 .sidebar {
@@ -11,12 +12,16 @@
     color: white;
     border-right: 1px solid #ddd;
     height: 100vh; /* Ensures sidebar takes full height */
+    overflow-x: auto; /* Allows horizontal scroll if content overflows */
+    white-space: nowrap; /* Prevents wrapping */
+    position: relative; /* Ensure it stays within the container */
 }
 
 .product-grid {
     flex: 1;
     padding: 20px;
     color: white;
+    overflow-x: auto; /* Ensures scrolling on overflow */
 }
 
 .heading {
@@ -65,6 +70,7 @@ input[type="range"] {
     width: 100%;
 }
 
+/* Custom Scrollbar Styles */
 .sidebar-scrollable::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -88,23 +94,33 @@ input[type="range"] {
     display: none;
 }
 
-/* Media Queries */
-
 /* Mobile: Small screens */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column;
+        flex-direction: column; /* Stack sidebar and product grid */
     }
 
     .sidebar {
-        width: 100%;
-        height: auto; /* Allow sidebar to shrink in height */
-        border-right: none; /* Remove the right border on small screens */
-        border-bottom: 1px solid #ddd; /* Add border at the bottom */
+        width: 100%; /* Sidebar full width on mobile */
+        height: auto; /* Adjust height as needed */
+        overflow-x: auto; /* Horizontal scroll */
+        white-space: nowrap; /* Prevent items from wrapping */
+        display: block;
+        position: sticky;
+        top: 0; /* Make sidebar stick to the top */
+        z-index: 100; /* Ensure sidebar is on top of grid */
+    }
+
+    /* Adding a scrollable wrapper around the sidebar and the grid */
+    .product-grid-wrapper {
+        display: flex;
+        overflow-x: auto; /* Enable horizontal scroll for the grid */
+        padding-top: 40px; /* Make room for the sidebar */
     }
 
     .product-grid {
         width: 100%;
+        display: inline-block;
     }
 
     .heading {
