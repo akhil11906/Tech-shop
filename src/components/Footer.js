@@ -167,10 +167,6 @@ const subscribeButtonStyle = {
     transition: 'background-color 0.3s',
 };
 
-const subscribeButtonHoverStyle = {
-    backgroundColor: '#E63946',
-};
-
 const linkListStyle = {
     listStyleType: 'none',
     padding: 0,

@@ -88,7 +88,7 @@ const Header = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, []);  // No changes required to the effect dependency array here
 
     return (
         <>
@@ -137,14 +137,14 @@ const Header = () => {
                         <h2 style={{ color: '#E1DDD' }}>{showLogin ? 'Login' : 'Signup'}</h2>
                         {showLogin ? (
                             <>
-                                <p>New to Tech-shop? <a href="#" onClick={toggleRegister}>Create an account</a></p>
+                                <p>New to Tech-shop? <button onClick={toggleRegister}>Create an account</button></p>
                                 <input type="text" placeholder="Username" style={loginRegisterInputStyle} autoComplete="off" />
                                 <input type="password" placeholder="Password" style={loginRegisterInputStyle} autoComplete="new-password" />
                                 <button style={loginRegisterButtonStyle}>Login</button>
                             </>
                         ) : (
                             <> 
-                                <p>Already have an account? <a href="#" onClick={toggleLogin}>Login</a></p>
+                                <p>Already have an account? <button onClick={toggleLogin}>Login</button></p>
                                 <input type="text" placeholder="Username" style={loginRegisterInputStyle} autoComplete="off" />
                                 <input type="email" placeholder="Email" style={loginRegisterInputStyle} autoComplete="off" />
                                 <input type="password" placeholder="Password" style={loginRegisterInputStyle} autoComplete="new-password" />

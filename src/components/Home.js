@@ -59,7 +59,7 @@ const Home = () => {
     useEffect(() => {
         const interval = setInterval(handleNext, 5000);
         return () => clearInterval(interval);
-    }, [currentIndex]);
+    }, []);
 
     const displayedProducts = [
         products[(currentIndex + 0) % products.length],
@@ -68,6 +68,12 @@ const Home = () => {
         products[(currentIndex + 3) % products.length],
         products[(currentIndex + 4) % products.length],
     ];
+
+    const getSizeClass = (index) => {
+        if (index === 0 || index === 4) return 'size-60';
+        if (index === 1 || index === 3) return 'size-80';
+        return 'size-100';
+    };
 
     return (
         <div>
@@ -101,7 +107,7 @@ const Home = () => {
             <div className="image-slider">
                 <div className="image-row">
                     {displayedProducts.map((product, index) => {
-                        let sizeClass = (index === 0 || index === 4) ? 'size-60' : (index === 1 || index === 3) ? 'size-80' : 'size-100';
+                        const sizeClass = getSizeClass(index);
                         return (
                             <div 
                                 className={`image-item ${sizeClass}`} 
